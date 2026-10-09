@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BELMARC — онлайн-каталогизатор</title>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body id="top">
+
+<div class="container">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="page-header">
+
+        <div class="header-badge">
+            БЫСТРОЕ РЕШЕНИЕ ВМЕСТО ЧАСОВ ВАШЕЙ РАБОТЫ
+        </div>
+
+        <h1>BELMARC — онлайн-каталогизатор</h1>
+
+        <p class="lead">
+            Введите обычное библиографическое описание.
+            Система распознает структуру описания и подготовит основные
+            поля BELMARC для последующей проверки каталогизатором.
+        </p>
+
+        <nav class="quick-nav" aria-label="Быстрая навигация">
+            <a href="#descriptionSection" class="quick-nav-link">
+                <span>01</span>
+                Описание
+            </a>
+
+            <a href="#fieldsSection" class="quick-nav-link">
+                <span>02</span>
+                Поля
+            </a>
+
+            <a href="#outputSection" class="quick-nav-link">
+                <span>03</span>
+                BELMARC
+            </a>
+
+            <a href="#cardSection" class="quick-nav-link">
+                <span>04</span>
+                Карточка
+            </a>
+
+            <a href="#referenceSection" class="quick-nav-link">
+                <span>05</span>
+                Справочник
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         1. ВХОДНОЕ ОПИСАНИЕ
+    ========================================================== -->
+
+    <section
+        class="section section-main"
+        id="descriptionSection"
+    >
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    ШАГ 01
+                </div>
+
+                <h2>Библиографическое описание</h2>
+
+                <p class="section-description">
+                    Можно вставлять описание из библиографического списка,
+                    каталога или документа.
+                </p>
+
+            </div>
+
+        </div>
+
+        <textarea
+            id="freeDesc"
+            class="large-textarea"
+            placeholder="Например:
+
+Колас, Якуб.
+На прасторах жыцця / Я. Колас. Міколка-паравоз / М. Лынькоў. Палескія рабінзоны : аповесці : [для малодшага школьнага ўзросту] / Я. Маўр."
+        ></textarea>
+
+        <div class="toolbar">
+
+            <button
+                id="parseBtn"
+                class="primary-action"
+                type="button"
+            >
+                <span>Распознать описание</span>
+                <span class="button-arrow">→</span>
+            </button>
+
+            <button
+                id="exampleBtn"
+                class="secondary"
+                type="button"
+            >
+                Вставить пример
+            </button>
+
+            <button
+                id="clearBtn"
+                class="secondary"
+                type="button"
+            >
+                Очистить
+            </button>
+
+        </div>
+
+        <div
+            id="parseStatus"
+            class="status"
+            aria-live="polite"
+        ></div>
+
+    </section>
+
+
+    <!-- =========================================================
+         2. ОСНОВНЫЕ ПАРАМЕТРЫ
+    ========================================================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    ШАГ 02
+                </div>
+
+                <h2>Основные параметры записи</h2>
+
+                <p class="section-description">
+                    Эти значения используются при формировании итоговой записи.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="grid">
+
+            <div class="field-card">
+
+                <label for="recordId">
+                    <span class="field-tag">001</span>
+                    Идентификатор записи
+                </label>
+
+                <input
+                    type="text"
+                    id="recordId"
+                    placeholder="например: byLOCAL-2026-000001"
+                >
+
+            </div>
+
+
+            <div class="field-card">
+
+                <label for="language">
+                    <span class="field-tag">101</span>
+                    Язык объекта
+                </label>
+
+                <input
+                    type="text"
+                    id="language"
+                    value="rus"
+                    placeholder="rus"
+                >
+
+            </div>
+
+
+            <div class="field-card">
+
+                <label for="country">
+                    <span class="field-tag">102</span>
+                    Национальная принадлежность
+                </label>
+
+                <input
+                    type="text"
+                    id="country"
+                    placeholder="BY"
+                >
+
+            </div>
+
+
+            <div class="field-card">
+
+                <label for="cataloguer">
+                    <span class="field-tag">999</span>
+                    Составитель записи
+                </label>
+
+                <input
+                    type="text"
+                    id="cataloguer"
+                    value="библиограф"
+                    placeholder="библиограф"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         3. РАСПОЗНАННЫЕ / РЕДАКТИРУЕМЫЕ ПОЛЯ
+    ========================================================== -->
+
+    <section
+        class="section"
+        id="fieldsSection"
+    >
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    ШАГ 03
+                </div>
+
+                <h2>Распознанные поля BELMARC</h2>
+
+                <p class="section-description">
+                    Поля, полученные автоматически, можно проверить и
+                    исправить вручную. Изменения попадут в итоговую запись.
+                </p>
+
+            </div>
+
+            <button
+                id="addFieldBtn"
+                class="secondary add-field-button"
+                type="button"
+            >
+                + Добавить поле
+            </button>
+
+        </div>
+
+        <div id="fieldsContainer"></div>
+
+    </section>
+
+
+    <!-- =========================================================
+         4. ИТОГОВАЯ ЗАПИСЬ
+    ========================================================== -->
+
+    <section
+        class="section output-section"
+        id="outputSection"
+    >
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    ШАГ 04
+                </div>
+
+                <h2>Итоговая запись</h2>
+
+                <p class="section-description">
+                    Перед переносом записи в каталог обязательно проверьте
+                    автоматически распознанные данные.
+                </p>
+
+            </div>
+
+            <select id="outputFormat">
+                <option value="belmarc">BELMARC</option>
+                <option value="marcxml">MARCXML</option>
+            </select>
+
+        </div>
+
+
+        <div class="output-label">
+            <span class="output-indicator"></span>
+            Код для переноса в каталогизатор
+        </div>
+
+        <textarea
+            id="output"
+            class="output-textarea"
+            spellcheck="false"
+            placeholder="Здесь появится итоговая запись..."
+        ></textarea>
+
+        <div class="toolbar">
+
+            <button
+                id="copyBtn"
+                class="primary-action"
+                type="button"
+            >
+                Скопировать запись
+            </button>
+
+            <button
+                id="downloadBtn"
+                class="secondary"
+                type="button"
+            >
+                Скачать файл
+            </button>
+
+            <a
+                href="#cardSection"
+                class="button-link card-link"
+            >
+                Перейти к карточке ↓
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         5. ВИЗУАЛЬНАЯ БИБЛИОГРАФИЧЕСКАЯ КАРТОЧКА
+    ========================================================== -->
+
+    <section
+        class="section card-section"
+        id="cardSection"
+    >
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    ШАГ 05
+                </div>
+
+                <h2>Визуальная библиотечная карточка</h2>
+
+                <p class="section-description">
+                    Предварительный визуальный вид библиографической записи,
+                    сформированный на основе распознанного описания.
+                </p>
+
+            </div>
+
+            <div class="card-status">
+                <span class="card-status-dot"></span>
+                Предпросмотр
+            </div>
+
+        </div>
+
+
+        <div
+            id="catalogCard"
+            class="catalog-card"
+        >
+
+            <div class="catalog-card-empty">
+                <div class="empty-icon">▤</div>
+
+                <strong>
+                    Карточка появится после распознавания
+                </strong>
+
+                <span>
+                    Введите библиографическое описание выше
+                    и нажмите «Распознать описание».
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="card-note">
+            <span class="note-icon">i</span>
+
+            <span>
+                Визуальная карточка является предварительным представлением
+                записи и предназначена для удобной проверки результатов
+                автоматического распознавания.
+            </span>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         6. СПРАВОЧНИК
+         Теперь находится в самом низу рабочей области.
+    ========================================================== -->
+
+    <section
+        class="section reference-section"
+        id="referenceSection"
+    >
+
+        <div class="section-title">
+
+            <div>
+
+                <div class="section-number">
+                    СПРАВОЧНИК
+                </div>
+
+                <h2>Справочник полей BELMARC</h2>
+
+                <p class="section-description">
+                    Справочник находится внизу страницы. Любое поле можно
+                    добавить вручную с помощью кнопки «Добавить поле».
+                </p>
+
+            </div>
+
+        </div>
+
+        <div
+            class="reference-toolbar"
+        >
+            <div class="reference-info">
+                <span class="reference-info-icon">i</span>
+                <span>
+                    Для поиска поля используйте поиск браузера
+                    <kbd>Ctrl</kbd> + <kbd>F</kbd>.
+                </span>
+            </div>
+
+            <a
+                href="#top"
+                class="button-link"
+            >
+                ↑ Наверх
+            </a>
+        </div>
+
+        <div
+            class="belmarc-reference"
+            id="belmarcReference"
+        ></div>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================================
+     FLOATING NAVIGATION
+========================================================== -->
+
+<div class="floating-navigation">
+
+    <a
+        href="#top"
+        class="floating-button"
+        title="Вернуться наверх"
+        aria-label="Вернуться наверх"
+    >
+        ↑
+    </a>
+
+    <a
+        href="#outputSection"
+        class="floating-button floating-button-main"
+        title="Перейти к коду BELMARC"
+        aria-label="Перейти к коду BELMARC"
+    >
+        <span>&lt;/&gt;</span>
+    </a>
+
+</div>
+
+
+<script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,2091 @@
+:root {
+    --bg: #eef2f7;
+    --bg-soft: #f7f9fc;
+
+    --card: #ffffff;
+    --card-soft: #f8fafc;
+
+    --text: #17212f;
+    --text-soft: #344254;
+    --muted: #6b7787;
+
+    --accent: #2563c7;
+    --accent-dark: #194d9d;
+    --accent-light: #eaf2ff;
+
+    --accent-green: #16845a;
+    --accent-green-light: #eaf8f2;
+
+    --border: #dbe2ea;
+    --border-dark: #c7d0dc;
+
+    --success: #18794e;
+    --warning: #a56800;
+    --danger: #b23a3a;
+
+    --shadow-sm:
+        0 2px 6px rgba(22, 35, 55, .05);
+
+    --shadow:
+        0 8px 24px rgba(22, 35, 55, .07);
+
+    --shadow-lg:
+        0 14px 40px rgba(22, 35, 55, .10);
+
+    --radius: 12px;
+    --radius-sm: 8px;
+
+    --transition: .18s ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5f8fc 0%,
+            var(--bg) 45%,
+            #eaf0f7 100%
+        );
+
+    color: var(--text);
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width:
+        min(
+            1180px,
+            calc(100% - 40px)
+        );
+
+    margin:
+        0 auto
+        70px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.page-header {
+    padding:
+        42px
+        0
+        28px;
+}
+
+.header-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    padding:
+        6px
+        10px;
+
+    border:
+        1px solid #cfe0f7;
+
+    border-radius: 999px;
+
+    background:
+        rgba(234, 242, 255, .85);
+
+    color:
+        var(--accent);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+h1 {
+    margin:
+        0 0 10px;
+
+    font-size:
+        clamp(27px, 4vw, 38px);
+
+    line-height: 1.15;
+
+    letter-spacing: -.025em;
+
+    color: #152238;
+}
+
+h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    line-height: 1.25;
+
+    letter-spacing: -.01em;
+}
+
+.lead {
+    margin: 0;
+
+    max-width: 850px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   QUICK NAV
+========================================================= */
+
+.quick-nav {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 24px;
+}
+
+.quick-nav-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px
+        11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: rgba(255, 255, 255, .72);
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 650;
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition),
+        color var(--transition);
+}
+
+.quick-nav-link span {
+    color: var(--accent);
+
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        monospace;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.quick-nav-link:hover {
+    transform: translateY(-1px);
+
+    border-color:
+        #b9cde9;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--accent);
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section {
+    position: relative;
+
+    background:
+        rgba(255, 255, 255, .96);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    padding:
+        24px;
+
+    margin-bottom:
+        18px;
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.section:hover {
+    border-color:
+        #d1dbe6;
+
+    box-shadow:
+        var(--shadow);
+}
+
+.section-main {
+    border-top:
+        3px solid var(--accent);
+}
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 24px;
+
+    margin-bottom: 18px;
+}
+
+.section-number {
+    margin-bottom: 5px;
+
+    color:
+        var(--accent);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .1em;
+
+    text-transform: uppercase;
+}
+
+.section-description {
+    margin:
+        5px 0 0;
+
+    max-width: 800px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+
+    font:
+        inherit;
+
+    border:
+        1px solid var(--border-dark);
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        #ffffff;
+
+    color:
+        var(--text);
+
+    outline:
+        none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+input,
+select {
+    height: 42px;
+
+    padding:
+        8px
+        12px;
+}
+
+textarea {
+    padding:
+        12px
+        13px;
+
+    resize:
+        vertical;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color:
+        #adb9c8;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 199, .11);
+
+    background:
+        #ffffff;
+}
+
+.large-textarea {
+    min-height: 195px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.output-textarea {
+    min-height: 440px;
+
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    background:
+        #101827;
+
+    color:
+        #dce9fa;
+
+    border-color:
+        #1e2c40;
+
+    box-shadow:
+        inset 0 1px 3px rgba(0, 0, 0, .18);
+}
+
+.output-textarea:focus {
+    border-color:
+        #4c8be1;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 199, .15),
+        inset 0 1px 3px rgba(0, 0, 0, .18);
+}
+
+.output-textarea::placeholder {
+    color:
+        #718097;
+}
+
+
+/* =========================================================
+   FIELD GRID
+========================================================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(260px, 1fr)
+        );
+
+    gap:
+        15px;
+}
+
+.field-card {
+    min-width: 0;
+
+    padding:
+        14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        var(--card-soft);
+
+    transition:
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.field-card:hover {
+    border-color:
+        #c9d5e3;
+
+    background:
+        #fbfcfe;
+}
+
+.field-card label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.field-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 35px;
+
+    padding:
+        3px
+        6px;
+
+    border-radius: 5px;
+
+    background:
+        var(--accent-light);
+
+    color:
+        var(--accent);
+
+    font-family:
+        "Cascadia Mono",
+        "Consolas",
+        monospace;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.toolbar {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 13px;
+}
+
+button,
+.button-link {
+    min-height: 40px;
+
+    border: 0;
+
+    border-radius:
+        var(--radius-sm);
+
+    padding:
+        9px
+        14px;
+
+    font:
+        inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform .08s ease,
+        box-shadow var(--transition);
+}
+
+button:active,
+.button-link:active {
+    transform:
+        translateY(1px);
+}
+
+.primary-action {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            #3477d5
+        );
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 3px 9px
+        rgba(37, 99, 199, .2);
+}
+
+.primary-action:hover {
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-dark),
+            var(--accent)
+        );
+
+    box-shadow:
+        0 5px 13px
+        rgba(37, 99, 199, .25);
+}
+
+.button-arrow {
+    font-size: 16px;
+}
+
+button.secondary,
+.button-link {
+    background:
+        #edf1f5;
+
+    color:
+        #465466;
+
+    border:
+        1px solid #d8dfe7;
+}
+
+button.secondary:hover,
+.button-link:hover {
+    background:
+        #e3e9ef;
+
+    color:
+        #26384e;
+
+    border-color:
+        #cbd5e0;
+}
+
+.add-field-button {
+    white-space:
+        nowrap;
+}
+
+.card-link {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    min-height:
+        20px;
+
+    margin-top:
+        11px;
+
+    padding:
+        0 2px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+}
+
+.status.success {
+    color:
+        var(--success);
+}
+
+.status.warning {
+    color:
+        var(--warning);
+}
+
+
+/* =========================================================
+   DYNAMIC FIELDS
+========================================================= */
+
+#fieldsContainer {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        9px;
+}
+
+.dynamic-field {
+    display:
+        grid;
+
+    grid-template-columns:
+        75px
+        minmax(220px, 1fr)
+        42px;
+
+    gap:
+        10px;
+
+    align-items:
+        start;
+
+    padding:
+        11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        #fafbfd;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.dynamic-field:hover {
+    border-color:
+        #cbd7e4;
+
+    box-shadow:
+        0 2px 8px rgba(22, 35, 55, .04);
+}
+
+.dynamic-tag {
+    padding-top:
+        9px;
+
+    font-family:
+        "Cascadia Mono",
+        Consolas,
+        monospace;
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    color:
+        var(--accent);
+}
+
+.dynamic-field textarea {
+    min-height:
+        62px;
+
+    font-family:
+        "Cascadia Mono",
+        Consolas,
+        monospace;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.45;
+}
+
+.remove-field {
+    width:
+        40px;
+
+    height:
+        40px;
+
+    padding:
+        0;
+
+    background:
+        #eef1f4;
+
+    color:
+        #687482;
+
+    font-size:
+        18px;
+}
+
+.remove-field:hover {
+    background:
+        #f8e8e8;
+
+    color:
+        var(--danger);
+}
+
+
+/* =========================================================
+   OUTPUT
+========================================================= */
+
+.output-section {
+    border-top:
+        3px solid #182b43;
+}
+
+.output-label {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-bottom:
+        7px;
+
+    color:
+        #506075;
+
+    font-size:
+        12px;
+
+    font-weight:
+        750;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .04em;
+}
+
+.output-indicator {
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #39bd7d;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(57, 189, 125, .12);
+}
+
+#outputFormat {
+    width:
+        auto;
+
+    min-width:
+        140px;
+
+    background:
+        #ffffff;
+
+    font-size:
+        13px;
+
+    font-weight:
+        650;
+}
+
+
+/* =========================================================
+   CATALOG CARD
+========================================================= */
+
+.card-section {
+    border-top:
+        3px solid #8b6f47;
+}
+
+.card-status {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        7px 11px;
+
+    border:
+        1px solid #d8ccb9;
+
+    border-radius:
+        4px;
+
+    background:
+        #f7f3eb;
+
+    color:
+        #725a39;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .04em;
+}
+
+.card-status-dot {
+    width:
+        7px;
+
+    height:
+        7px;
+
+    border-radius:
+        50%;
+
+    background:
+        #8b6f47;
+}
+
+
+/* =========================================================
+   ОСНОВНАЯ КАРТОЧКА
+========================================================= */
+
+.catalog-card {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    min-height:
+        360px;
+
+    padding:
+        42px 54px 38px;
+
+    border:
+        1px solid #cfc5b5;
+
+    border-radius:
+        2px;
+
+    background:
+        #fffdf7;
+
+    color:
+        #252525;
+
+    box-shadow:
+        0 5px 18px
+        rgba(48, 42, 32, .10);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.45),
+            rgba(255,255,255,.45)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 4px,
+            rgba(90, 75, 55, .018) 5px
+        );
+}
+
+
+/*
+ * Левая полоса, напоминающая карточку
+ * из традиционного каталожного ящика.
+ */
+
+.catalog-card::before {
+    content: "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        0;
+
+    width:
+        4px;
+
+    background:
+        #9c8158;
+}
+
+
+/*
+ * Декоративный номер карточки.
+ */
+
+.catalog-card::after {
+    content:
+        "БИБЛИОГРАФИЧЕСКОЕ ОПИСАНИЕ";
+
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        22px;
+
+    color:
+        #b2a897;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .12em;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.catalog-card-empty {
+    display:
+        flex;
+
+    min-height:
+        275px;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    text-align:
+        center;
+
+    color:
+        #777268;
+}
+
+.catalog-card-empty strong {
+    color:
+        #4d4942;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        14px;
+}
+
+.catalog-card-empty span {
+    max-width:
+        460px;
+
+    color:
+        #8b867d;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        12px;
+}
+
+.empty-icon {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    margin-bottom:
+        5px;
+
+    border:
+        1px solid #d8cdbb;
+
+    border-radius:
+        50%;
+
+    background:
+        #f7f1e5;
+
+    color:
+        #927952;
+
+    font-size:
+        22px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.catalog-card-content {
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* =========================================================
+   АВТОРСКИЙ ЗНАК
+========================================================= */
+
+.catalog-card-author-mark {
+    display:
+        block;
+
+    width:
+        max-content;
+
+    min-width:
+        42px;
+
+    margin:
+        0 0 15px;
+
+    padding:
+        4px 7px;
+
+    border-bottom:
+        1px solid #b9ad9b;
+
+    color:
+        #4d4438;
+
+    font-family:
+        "Courier New",
+        Consolas,
+        monospace;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        .04em;
+}
+
+
+/* =========================================================
+   АВТОР / ЗАГОЛОВОК ЗАПИСИ
+========================================================= */
+
+.catalog-card-record-heading {
+    margin:
+        0 0 15px;
+
+    color:
+        #35312b;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.45;
+
+    font-weight:
+        700;
+}
+
+.catalog-card-record-heading .record-author {
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   ОСНОВНОЕ БИБЛИОГРАФИЧЕСКОЕ ОПИСАНИЕ
+========================================================= */
+
+.catalog-card-description {
+    margin:
+        0;
+
+    color:
+        #282828;
+
+    font-size:
+        17px;
+
+    line-height:
+        1.65;
+}
+
+
+/*
+ * Основное заглавие.
+ */
+
+.catalog-card-main-title {
+    font-weight:
+        700;
+}
+
+
+/*
+ * Сведения, относящиеся к заглавию.
+ */
+
+.catalog-card-related-title {
+    color:
+        #39342d;
+}
+
+
+/*
+ * Сведения об ответственности.
+ */
+
+.catalog-card-responsibility {
+    color:
+        #39342d;
+}
+
+
+/*
+ * Издательская область.
+ */
+
+.catalog-card-publication {
+    color:
+        #302d29;
+}
+
+
+/*
+ * Физическая характеристика.
+ */
+
+.catalog-card-physical {
+    color:
+        #302d29;
+}
+
+
+/* =========================================================
+   ОТДЕЛЬНЫЕ ОБЛАСТИ
+========================================================= */
+
+.catalog-card-area {
+    margin-top:
+        12px;
+
+    padding-top:
+        11px;
+
+    border-top:
+        1px solid #ded6ca;
+}
+
+.catalog-card-area-label {
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #8a7b68;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+.catalog-card-area-value {
+    color:
+        #33302c;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+}
+
+
+/* =========================================================
+   ISBN
+========================================================= */
+
+.catalog-card-isbn {
+    margin-top:
+        18px;
+
+    padding:
+        10px 0;
+
+    border-top:
+        1px solid #d8d0c4;
+
+    border-bottom:
+        1px solid #d8d0c4;
+
+    color:
+        #282522;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+}
+
+.catalog-card-isbn-label {
+    margin-right:
+        8px;
+
+    color:
+        #776c5d;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================================================
+   АННОТАЦИЯ
+========================================================= */
+
+.catalog-card-annotation {
+    margin-top:
+        18px;
+
+    padding:
+        13px 15px;
+
+    border-left:
+        3px solid #c0a77d;
+
+    background:
+        #faf7f0;
+
+    color:
+        #48423a;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.55;
+}
+
+
+/* =========================================================
+   РУБРИКИ И КЛАССИФИКАЦИЯ
+========================================================= */
+
+.catalog-card-indexes {
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap:
+        14px;
+
+    margin-top:
+        20px;
+
+    padding-top:
+        14px;
+
+    border-top:
+        1px solid #d8d0c4;
+}
+
+.catalog-card-index {
+    min-width:
+        0;
+}
+
+.catalog-card-index-label {
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+    color:
+        #837665;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        .08em;
+
+    text-transform:
+        uppercase;
+}
+
+.catalog-card-index-value {
+    color:
+        #292722;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.45;
+}
+
+
+/* =========================================================
+   ПРЕДМЕТНЫЕ РУБРИКИ
+========================================================= */
+
+.catalog-card-subjects {
+    margin-top:
+        18px;
+
+    padding-top:
+        14px;
+
+    border-top:
+        1px solid #d8d0c4;
+}
+
+.catalog-card-subject {
+    display:
+        inline-block;
+
+    margin:
+        3px 5px 3px 0;
+
+    padding:
+        4px 8px;
+
+    border:
+        1px solid #d8d0c4;
+
+    border-radius:
+        2px;
+
+    background:
+        #f7f3eb;
+
+    color:
+        #4c4439;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   НИЖНЯЯ СТРОКА
+========================================================= */
+
+.catalog-card-bottom {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    justify-content:
+        space-between;
+
+    gap:
+        10px;
+
+    margin-top:
+        24px;
+
+    padding-top:
+        11px;
+
+    border-top:
+        1px dotted #c8bdae;
+
+    color:
+        #8a8175;
+
+    font-family:
+        system-ui,
+        sans-serif;
+
+    font-size:
+        10px;
+
+    letter-spacing:
+        .02em;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.card-note {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        9px;
+
+    margin-top:
+        12px;
+
+    padding:
+        11px 13px;
+
+    border:
+        1px solid #dce7df;
+
+    border-radius:
+        8px;
+
+    background:
+        #f6faf8;
+
+    color:
+        #64746b;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.45;
+}
+
+.note-icon {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex:
+        0 0 auto;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    border-radius:
+        50%;
+
+    background:
+        #dff1e8;
+
+    color:
+        #31805d;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   REFERENCE
+========================================================= */
+
+.reference-section {
+    border-top:
+        3px solid #687585;
+}
+
+.reference-toolbar {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        14px;
+}
+
+.reference-info {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+}
+
+.reference-info-icon {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    border-radius:
+        50%;
+
+    background:
+        #edf1f5;
+
+    color:
+        #637184;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+}
+
+kbd {
+    padding:
+        2px
+        5px;
+
+    border:
+        1px solid #ccd4dd;
+
+    border-bottom-width:
+        2px;
+
+    border-radius:
+        4px;
+
+    background:
+        #f6f8fa;
+
+    color:
+        #556273;
+
+    font-family:
+        inherit;
+
+    font-size:
+        10px;
+}
+
+.belmarc-reference {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(320px, 1fr)
+        );
+
+    gap:
+        8px;
+}
+
+.reference-item {
+    padding:
+        10px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        7px;
+
+    background:
+        #fafbfd;
+
+    color:
+        #4e5a68;
+
+    font-size:
+        12px;
+
+    transition:
+        border-color var(--transition),
+        background var(--transition),
+        transform var(--transition);
+}
+
+.reference-item:hover {
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #c6d3e1;
+
+    background:
+        #ffffff;
+}
+
+.reference-tag {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        43px;
+
+    margin-right:
+        7px;
+
+    padding:
+        3px 5px;
+
+    border-radius:
+        4px;
+
+    background:
+        var(--accent-light);
+
+    color:
+        var(--accent);
+
+    font-family:
+        "Cascadia Mono",
+        Consolas,
+        monospace;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+}
+
+
+/* =========================================================
+   FLOATING NAVIGATION
+========================================================= */
+
+.floating-navigation {
+    position:
+        fixed;
+
+    right:
+        22px;
+
+    bottom:
+        22px;
+
+    z-index:
+        100;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+}
+
+.floating-button {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        43px;
+
+    height:
+        43px;
+
+    border:
+        1px solid #d1dae4;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, .95);
+
+    color:
+        #526172;
+
+    text-decoration:
+        none;
+
+    font-size:
+        19px;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        0 5px 18px
+        rgba(22, 35, 55, .13);
+
+    backdrop-filter:
+        blur(7px);
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+}
+
+.floating-button:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #b9c8d9;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--accent);
+}
+
+.floating-button-main {
+    background:
+        var(--accent);
+
+    border-color:
+        var(--accent);
+
+    color:
+        #ffffff;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        -.05em;
+}
+
+.floating-button-main:hover {
+    background:
+        var(--accent-dark);
+
+    border-color:
+        var(--accent-dark);
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    .catalog-card {
+        padding:
+            30px 34px 28px;
+    }
+
+    .catalog-card-indexes {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+
+    .catalog-card {
+        padding:
+            27px 24px 25px;
+    }
+
+    .catalog-card::after {
+        display:
+            none;
+    }
+
+    .catalog-card-description {
+        font-size:
+            15px;
+
+        line-height:
+            1.6;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    /* остальной ваш код без изменений */
+
+    .catalog-card {
+        min-height:
+            300px;
+
+        padding:
+            24px 18px;
+    }
+
+    .catalog-card-record-heading {
+        font-size:
+            15px;
+    }
+
+    .catalog-card-description {
+        font-size:
+            14px;
+    }
+
+    .catalog-card-indexes {
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration:
+            0.01ms !important;
+    }
+}
