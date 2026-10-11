@@ -39,9 +39,6 @@
 }
 
 
-/* =========================================================
-   RESET
-========================================================= */
 
 *,
 *::before,
@@ -86,9 +83,6 @@ body {
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
 
 .container {
     width:
@@ -103,9 +97,7 @@ body {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+
 
 .page-header {
     padding:
@@ -178,10 +170,6 @@ h2 {
 }
 
 
-/* =========================================================
-   QUICK NAV
-========================================================= */
-
 .quick-nav {
     display: flex;
 
@@ -252,9 +240,6 @@ h2 {
 }
 
 
-/* =========================================================
-   SECTIONS
-========================================================= */
 
 .section {
     position: relative;
@@ -333,9 +318,6 @@ h2 {
 }
 
 
-/* =========================================================
-   INPUTS
-========================================================= */
 
 input,
 textarea,
@@ -455,37 +437,29 @@ select:focus {
 }
 
 
-/* =========================================================
-   FIELD GRID
-========================================================= */
+
+/* Сетка основных параметров записи */
 
 .grid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    grid-template-columns:
-        repeat(
-            2,
-            minmax(260px, 1fr)
-        );
+    gap: 15px;
 
-    gap:
-        15px;
+    width: 100%;
+    min-width: 0;
 }
 
 .field-card {
     min-width: 0;
+    width: 100%;
 
-    padding:
-        14px;
+    padding: 14px;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
 
-    border-radius:
-        var(--radius-sm);
-
-    background:
-        var(--card-soft);
+    background: var(--card-soft);
 
     transition:
         border-color var(--transition),
@@ -493,16 +467,13 @@ select:focus {
 }
 
 .field-card:hover {
-    border-color:
-        #c9d5e3;
-
-    background:
-        #fbfcfe;
+    border-color: #c9d5e3;
+    background: #fbfcfe;
 }
 
 .field-card label {
     display: flex;
-
+    flex-wrap: wrap;
     align-items: center;
 
     gap: 7px;
@@ -510,46 +481,31 @@ select:focus {
     margin-bottom: 7px;
 
     font-size: 13px;
-
     font-weight: 700;
+
+    /* Длинные подписи не расширяют карточку */
+    overflow-wrap: anywhere;
 }
 
 .field-tag {
     display: inline-flex;
+    flex: 0 0 auto;
 
     align-items: center;
-
     justify-content: center;
 
     min-width: 35px;
-
-    padding:
-        3px
-        6px;
+    padding: 3px 6px;
 
     border-radius: 5px;
 
-    background:
-        var(--accent-light);
+    background: var(--accent-light);
+    color: var(--accent);
 
-    color:
-        var(--accent);
-
-    font-family:
-        "Cascadia Mono",
-        "Consolas",
-        monospace;
-
+    font-family: "Cascadia Mono", "Consolas", monospace;
     font-size: 11px;
-
     font-weight: 800;
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
 .toolbar {
     display: flex;
 
@@ -678,11 +634,6 @@ button.secondary:hover,
         center;
 }
 
-
-/* =========================================================
-   STATUS
-========================================================= */
-
 .status {
     min-height:
         20px;
@@ -709,11 +660,6 @@ button.secondary:hover,
     color:
         var(--warning);
 }
-
-
-/* =========================================================
-   DYNAMIC FIELDS
-========================================================= */
 
 #fieldsContainer {
     display:
@@ -828,12 +774,6 @@ button.secondary:hover,
     color:
         var(--danger);
 }
-
-
-/* =========================================================
-   OUTPUT
-========================================================= */
-
 .output-section {
     border-top:
         3px solid #182b43;
@@ -903,10 +843,6 @@ button.secondary:hover,
         650;
 }
 
-
-/* =========================================================
-   CATALOG CARD
-========================================================= */
 
 .card-section {
     border-top:
@@ -1081,9 +1017,7 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   EMPTY STATE
-========================================================= */
+
 
 .catalog-card-empty {
     display:
@@ -1174,9 +1108,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
 
 .catalog-card-content {
     position:
@@ -1187,9 +1118,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   АВТОРСКИЙ ЗНАК
-========================================================= */
 
 .catalog-card-author-mark {
     display:
@@ -1229,9 +1157,7 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   АВТОР / ЗАГОЛОВОК ЗАПИСИ
-========================================================= */
+
 
 .catalog-card-record-heading {
     margin:
@@ -1256,9 +1182,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   ОСНОВНОЕ БИБЛИОГРАФИЧЕСКОЕ ОПИСАНИЕ
-========================================================= */
 
 .catalog-card-description {
     margin:
@@ -1275,9 +1198,7 @@ button.secondary:hover,
 }
 
 
-/*
- * Основное заглавие.
- */
+
 
 .catalog-card-main-title {
     font-weight:
@@ -1285,9 +1206,7 @@ button.secondary:hover,
 }
 
 
-/*
- * Сведения, относящиеся к заглавию.
- */
+
 
 .catalog-card-related-title {
     color:
@@ -1295,9 +1214,7 @@ button.secondary:hover,
 }
 
 
-/*
- * Сведения об ответственности.
- */
+
 
 .catalog-card-responsibility {
     color:
@@ -1305,9 +1222,6 @@ button.secondary:hover,
 }
 
 
-/*
- * Издательская область.
- */
 
 .catalog-card-publication {
     color:
@@ -1315,9 +1229,7 @@ button.secondary:hover,
 }
 
 
-/*
- * Физическая характеристика.
- */
+
 
 .catalog-card-physical {
     color:
@@ -1325,9 +1237,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   ОТДЕЛЬНЫЕ ОБЛАСТИ
-========================================================= */
 
 .catalog-card-area {
     margin-top:
@@ -1379,9 +1288,7 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   ISBN
-========================================================= */
+
 
 .catalog-card-isbn {
     margin-top:
@@ -1431,9 +1338,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   АННОТАЦИЯ
-========================================================= */
 
 .catalog-card-annotation {
     margin-top:
@@ -1459,9 +1363,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   РУБРИКИ И КЛАССИФИКАЦИЯ
-========================================================= */
 
 .catalog-card-indexes {
     display:
@@ -1528,9 +1429,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   ПРЕДМЕТНЫЕ РУБРИКИ
-========================================================= */
 
 .catalog-card-subjects {
     margin-top:
@@ -1570,9 +1468,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   НИЖНЯЯ СТРОКА
-========================================================= */
 
 .catalog-card-bottom {
     display:
@@ -1611,9 +1506,6 @@ button.secondary:hover,
 }
 
 
-/* =========================================================
-   NOTE
-========================================================= */
 
 .card-note {
     display:
@@ -1684,11 +1576,6 @@ button.secondary:hover,
     font-weight:
         800;
 }
-
-
-/* =========================================================
-   REFERENCE
-========================================================= */
 
 .reference-section {
     border-top:
@@ -1879,9 +1766,6 @@ kbd {
 }
 
 
-/* =========================================================
-   FLOATING NAVIGATION
-========================================================= */
 
 .floating-navigation {
     position:
@@ -2000,9 +1884,6 @@ kbd {
 }
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 @media (max-width: 800px) {
 
@@ -2044,7 +1925,7 @@ kbd {
 
 @media (max-width: 500px) {
 
-    /* остальной ваш код без изменений */
+   
 
     .catalog-card {
         min-height:
@@ -2071,10 +1952,6 @@ kbd {
 }
 
 
-/* =========================================================
-   ACCESSIBILITY / REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
 
     html {
@@ -2087,5 +1964,65 @@ kbd {
     *::after {
         transition-duration:
             0.01ms !important;
+    }
+}
+@media (max-width: 600px) {
+
+    .container {
+        width: calc(100% - 24px);
+        max-width: 100%;
+    }
+
+    .section {
+        min-width: 0;
+        padding: 16px;
+    }
+
+    
+    .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .field-card {
+        min-width: 0;
+        width: 100%;
+    }
+
+    
+    .field-card input {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    
+    .section-title {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    
+    .quick-nav {
+        flex-wrap: wrap;
+    }
+
+    
+    .toolbar {
+        flex-wrap: wrap;
+    }
+
+    .floating-navigation {
+        right: 12px;
+        bottom: 12px;
     }
 }
